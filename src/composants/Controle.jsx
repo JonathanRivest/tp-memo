@@ -4,7 +4,7 @@ import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-export default function Controle({etatTaches, utilisateur}) {
+export default function Controle({etatTaches, utilisateur, gererSupprimerCompletees, uid}) {
   
   return (
     <footer className="Controle">
@@ -24,7 +24,7 @@ export default function Controle({etatTaches, utilisateur}) {
         size="small" 
         variant="contained" 
         color="secondary" 
-        onClick={() => alert('Rien pour le moment')} 
+        onClick={() => gererSupprimerCompletees(uid)} 
         title="Supprimer les tâches complétées"
       >
         <DeleteIcon fontSize="small" />

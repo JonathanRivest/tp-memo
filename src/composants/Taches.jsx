@@ -66,6 +66,16 @@ export default function Taches({etatTaches, utilisateur}) {
     )
   }
 
+  function gererSupprimerCompletees(uid) {
+    crudTaches.supprimerTout(uid).then(
+      () => setTaches(taches.filter(
+        tache => tache.id!==uid
+      ))
+    )
+  }
+
+ 
+
   return (
     <section className="Taches">
       <form onSubmit={e => gererAjoutTache(uid, e)}>
@@ -84,7 +94,8 @@ export default function Taches({etatTaches, utilisateur}) {
                         key={tache.id} 
                         {... tache} 
                         gererBasculerTache={gererBasculerTache} 
-                        gererSupprimerTache={gererSupprimerTache} 
+                        gererSupprimerTache={gererSupprimerTache}
+                        gererSupprimerCompletees={gererSupprimerCompletees}
                       />
           )
         }
